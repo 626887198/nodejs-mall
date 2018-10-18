@@ -15,6 +15,7 @@ app.use(express.json());
 
 //加载自定义路由
 app.use("/user",require("./router/user"))
+app.use("/category",require("./router/category"))
 
 //全局错误中间件，放在加载路由后面
 app.use((err, req, res, next)=> {
