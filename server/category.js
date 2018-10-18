@@ -10,6 +10,7 @@ async function getCategoryByPage(page = 1) {
 
 //增加分类
 async function addCategory(category) {
+    category.created=Date.now()
     category = await Category.create(category);
     return category;
 }
