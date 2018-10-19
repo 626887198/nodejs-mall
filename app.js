@@ -7,6 +7,8 @@ let config = require("./config");
 
 // 使用自定义的加强response的中间件
 app.use(require("./mid/res_md"))
+//检验用户的登录状态
+app.use(require("./mid/token_md"))
 //使用日志
 app.use(logger('combined'))
 //解析json格式数据

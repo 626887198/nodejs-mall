@@ -1,5 +1,5 @@
-const mongoose=require("mongoose");
-const schema=new mongoose.Schema({
+let mongoose=require("mongoose");
+let schema=new mongoose.Schema({
     username: {
         type: String,
         required: [true, "用户名不能缺少"]

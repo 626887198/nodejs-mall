@@ -3,8 +3,8 @@ let router = require("express").Router();
 let crypto = require("../cryptoUtil/cryptoUtil")
 
 //用户注册
-router.post("/", async (req, res) => {
-    let user = await userService.regest(req.body)
+router.post("/regist", async (req, res) => {
+    let user = await userService.regist(req.body)
     res.success(user)
 });
 

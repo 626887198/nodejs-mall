@@ -7,7 +7,7 @@ let config = require("../config")
  * @param user {username:zhangsan,password:123}
  * @returns {Promise<void>}
  */
-async function regest(user) {
+async function regist(user) {
     //先根据用户名查找用户
     let result = await User.findOne({username:user.username});
     if (result) {
@@ -37,14 +37,6 @@ async function findByUsername(username) {
     return user
 }
 
-// // 根据用户名检查用户是否存在
-// async function isExistByUsername(username) {
-//     let result = await findByUsername(username);
-//     if (!result) {
-//         throw Error(`用户名为${username}的用户不存在`);
-//     }
-// }
-
 async function deleteUserByUsername(username) {
     //先查出是否有该用户
     await findByUsername(username)
@@ -59,7 +51,7 @@ async function login(user) {
     // await isExistByUsername(user.username);
     // 用户有没有传递密码过来
     let password = user.password;
-    if (password === null || password.trim().length == 0) {
+    if (password === null) {
         throw Error("密码不能为空")
     }
     user.password = crypto.md5Hmac(user.password, user.username);
@@ -82,7 +74,7 @@ async function login(user) {
 }
 
 module.exports = {
-    regest,
+    regist,
     login,
     findByUsername,
     deleteUserByUsername
